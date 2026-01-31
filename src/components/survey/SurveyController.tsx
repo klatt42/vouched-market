@@ -220,7 +220,7 @@ export default function SurveyController({
     return submitting ? (
       <div className="py-12 text-center">
         <div className="mx-auto mb-4 h-8 w-8 animate-spin rounded-full border-4 border-accent border-t-transparent" />
-        <p className="text-text-secondary">Submitting your responses...</p>
+        <p className="text-lg text-text-secondary">Submitting your responses...</p>
       </div>
     ) : (
       <EmailCapture onSubmit={handleEmailSubmit} />
@@ -232,19 +232,19 @@ export default function SurveyController({
       <SurveyProgress current={step + 1} total={questions.length} />
       <div className="min-h-[300px]">{renderQuestion()}</div>
       {validationError && (
-        <p className="mt-3 text-sm text-alert">{validationError}</p>
+        <p className="mt-3 text-base text-alert">{validationError}</p>
       )}
       <div className="mt-8 flex items-center justify-between">
         <button
           onClick={prev}
           disabled={step === 0}
-          className="rounded-full px-6 py-2 text-sm font-medium text-text-muted transition-colors hover:text-text disabled:invisible"
+          className="rounded-full px-8 py-3 text-base font-medium text-text-muted transition-colors hover:text-text disabled:invisible"
         >
           &larr; Back
         </button>
         <button
           onClick={next}
-          className="rounded-full bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent-light"
+          className="rounded-full bg-accent px-10 py-4 text-lg font-semibold text-white transition-colors hover:bg-accent-light"
         >
           {step === questions.length - 1 ? "Finish" : "Continue"} &rarr;
         </button>

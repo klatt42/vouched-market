@@ -7,14 +7,14 @@ export default function SurveyProgress({
 }) {
   const pct = Math.round((current / total) * 100);
   return (
-    <div className="mb-6">
-      <div className="mb-1 flex items-center justify-between text-xs text-text-muted">
+    <div className="mb-8">
+      <div className="mb-2 flex items-center justify-between text-sm text-text-muted">
         <span>
           Question {current} of {total}
         </span>
         <span>{pct}%</span>
       </div>
-      <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200">
+      <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
         <div
           className="h-full rounded-full bg-accent transition-all duration-500"
           style={{ width: `${pct}%` }}

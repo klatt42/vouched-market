@@ -10,15 +10,15 @@ export default function PainPointCard({
   attribution: string;
 }) {
   return (
-    <div className="flex flex-col rounded-xl bg-card p-6 shadow-md transition-all hover:-translate-y-1 hover:shadow-lg">
-      <span className="mb-3 text-3xl">{emoji}</span>
-      <h3 className="mb-3 text-sm font-bold tracking-widest text-alert">
+    <div className="flex flex-col rounded-2xl bg-card p-8 shadow-md transition-all hover:-translate-y-2 hover:shadow-xl">
+      <span className="mb-4 text-5xl">{emoji}</span>
+      <h3 className="mb-3 text-base font-bold tracking-widest text-alert">
         {title}
       </h3>
-      <p className="mb-4 flex-1 text-sm italic leading-relaxed text-text-secondary">
+      <p className="mb-4 flex-1 text-base italic leading-relaxed text-text-secondary">
         &ldquo;{quote}&rdquo;
       </p>
-      <p className="text-xs text-text-muted">&mdash; {attribution}</p>
+      <p className="text-sm text-text-muted">&mdash; {attribution}</p>
     </div>
   );
 }

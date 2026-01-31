@@ -27,19 +27,19 @@ export default function Confirmation({
 
   return (
     <div className="text-center">
-      <div className="animate-checkmark mb-4 text-5xl">&#127881;</div>
-      <h3 className="mb-2 text-2xl font-bold text-primary">
+      <div className="animate-checkmark mb-6 text-6xl">&#127881;</div>
+      <h3 className="mb-3 text-3xl font-bold text-primary">
         Welcome to VouchedMarket, {displayName}!
       </h3>
-      <p className="mb-6 text-text-secondary">
+      <p className="mb-8 text-lg text-text-secondary">
         You&apos;re officially a Founding Member.
       </p>
 
       <div className="mb-8 space-y-4 text-left">
-        <h4 className="font-semibold text-text">
+        <h4 className="text-lg font-semibold text-text">
           Here&apos;s what happens next:
         </h4>
-        <ol className="list-inside list-decimal space-y-2 text-sm text-text-secondary">
+        <ol className="list-inside list-decimal space-y-3 text-base text-text-secondary">
           <li>
             <strong>Check your inbox</strong> &mdash; Confirmation email coming
             shortly
@@ -58,13 +58,13 @@ export default function Confirmation({
       <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <button
           onClick={handleShare}
-          className="rounded-full bg-primary px-6 py-3 font-semibold text-white transition-colors hover:bg-primary-light"
+          className="rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white transition-colors hover:bg-primary-light"
         >
           Share VouchedMarket
         </button>
         <button
           onClick={onClose}
-          className="rounded-full border-2 border-gray-200 px-6 py-3 font-semibold text-text-secondary transition-colors hover:border-gray-300"
+          className="rounded-full border-2 border-gray-200 px-8 py-4 text-lg font-semibold text-text-secondary transition-colors hover:border-gray-300"
         >
           Return to Homepage
         </button>
@@ -72,7 +72,7 @@ export default function Confirmation({
 
       <hr className="mb-6 border-gray-200" />
 
-      <div className="space-y-2 text-sm text-text-muted">
+      <div className="space-y-3 text-base text-text-muted">
         <p className="font-semibold text-text-secondary">
           Your Founding Member benefits are locked in:
         </p>

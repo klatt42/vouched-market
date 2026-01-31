@@ -24,12 +24,12 @@ export default function Header({
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="text-xl font-bold text-primary">
+        <a href="#" className="text-2xl font-bold text-primary">
           VouchedMarket
         </a>
         <button
           onClick={onCtaClick}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-light"
+          className="rounded-full bg-accent px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-accent-light"
         >
           Get Early Access
         </button>
