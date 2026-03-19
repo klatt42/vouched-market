@@ -9,9 +9,12 @@ interface SubmitData {
   submitted_at: string;
 }
 
-export async function submitSurvey(data: SubmitData): Promise<boolean> {
-  const webhookUrl = process.env.NEXT_PUBLIC_WEBHOOK_URL;
+export interface SubmitResult {
+  success: boolean;
+  qualification_tier?: "priority" | "qualified" | "standard";
+}
 
+export async function submitSurvey(data: SubmitData): Promise<SubmitResult> {
   // Flatten matrix responses into top-level keys
   const flat: Record<string, unknown> = {
     survey_type: data.survey_type,
@@ -32,21 +35,25 @@ export async function submitSurvey(data: SubmitData): Promise<boolean> {
     }
   }
 
-  if (webhookUrl) {
-    try {
-      const res = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(flat),
-      });
-      return res.ok;
-    } catch {
-      console.error("Webhook submission failed");
-      return false;
-    }
-  }
+  try {
+    const res = await fetch("/api/survey/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(flat),
+    });
 
-  // Dev mode: log to console
-  console.log("Survey submission (no webhook configured):", flat);
-  return true;
+    if (!res.ok) {
+      console.error("Survey submission failed:", res.status);
+      return { success: false };
+    }
+
+    const result = await res.json();
+    return {
+      success: true,
+      qualification_tier: result.qualification_tier,
+    };
+  } catch (err) {
+    console.error("Survey submission error:", err);
+    return { success: false };
+  }
 }

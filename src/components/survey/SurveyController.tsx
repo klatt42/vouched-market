@@ -146,7 +146,7 @@ export default function SurveyController({
     setSubmitting(true);
     setFirstName(data.first_name);
 
-    await submitSurvey({
+    const result = await submitSurvey({
       survey_type: track,
       email: data.email,
       first_name: data.first_name,
@@ -154,6 +154,10 @@ export default function SurveyController({
       responses,
       submitted_at: new Date().toISOString(),
     });
+
+    if (!result.success) {
+      console.error("Survey submission failed");
+    }
 
     localStorage.removeItem(STORAGE_KEY);
     setSubmitting(false);
